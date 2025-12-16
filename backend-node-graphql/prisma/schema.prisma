@@ -14,6 +14,8 @@ model Client {
   email     String
   telephone String
   reservations Reservation[]
+
+  @@map("client")
 }
 
 model Chambre {
@@ -22,15 +24,19 @@ model Chambre {
   prix       Decimal
   disponible Boolean
   reservations Reservation[]
+
+  @@map("chambre")
 }
 
 model Reservation {
   id          Int      @id @default(autoincrement())
-  clientId    Int
-  chambreId   Int
-  dateDebut   DateTime
-  dateFin     DateTime
+  clientId    Int      @map("client_id")
+  chambreId   Int      @map("chambre_id")
+  dateDebut   DateTime @map("date_debut")
+  dateFin     DateTime @map("date_fin")
   preferences String
   client      Client   @relation(fields: [clientId], references: [id])
   chambre     Chambre  @relation(fields: [chambreId], references: [id])
+
+  @@map("reservation")
 }

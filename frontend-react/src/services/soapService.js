@@ -14,8 +14,37 @@ const createXml = (method, body) => `
 const parseXml = (xml) => {
     const parser = new DOMParser();
     const xmlDoc = parser.parseFromString(xml, "text/xml");
-    // Simplified parsing logic for demo
-    return xmlDoc;
+    const reservation = xmlDoc.getElementsByTagName("ns2:reservation")[0]; // Assuming ns2 based on Spring Boot default
+
+    if (!reservation) return null;
+
+    const getText = (tag) => {
+        const el = reservation.getElementsByTagName("ns2:" + tag)[0];
+        return el ? el.textContent : "";
+    };
+
+    const clientEl = reservation.getElementsByTagName("ns2:client")[0];
+    const chambreEl = reservation.getElementsByTagName("ns2:chambre")[0];
+
+    return {
+        reservation: {
+            id: getText("id"),
+            client: {
+                nom: clientEl ? clientEl.getElementsByTagName("ns2:nom")[0]?.textContent : "",
+                prenom: clientEl ? clientEl.getElementsByTagName("ns2:prenom")[0]?.textContent : "",
+                email: clientEl ? clientEl.getElementsByTagName("ns2:email")[0]?.textContent : "",
+                telephone: clientEl ? clientEl.getElementsByTagName("ns2:telephone")[0]?.textContent : ""
+            },
+            chambre: {
+                type: chambreEl ? chambreEl.getElementsByTagName("ns2:type")[0]?.textContent : "",
+                prix: chambreEl ? chambreEl.getElementsByTagName("ns2:prix")[0]?.textContent : "",
+                disponible: chambreEl ? chambreEl.getElementsByTagName("ns2:disponible")[0]?.textContent === 'true' : false
+            },
+            dateDebut: getText("dateDebut"),
+            dateFin: getText("dateFin"),
+            preferences: getText("preferences")
+        }
+    };
 };
 
 export const soapService = {

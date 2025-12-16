@@ -6,8 +6,8 @@ export default defineConfig({
     plugins: [react()],
     server: {
         proxy: {
-            '/api': 'http://localhost:8080', // REST
-            '/ws': 'http://localhost:8080',  // SOAP
+            '/api': 'http://localhost:8081', // REST
+            '/ws': 'http://localhost:8081',  // SOAP
         }
     }
 })

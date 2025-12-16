@@ -1,0 +1,13 @@
+com/example/hotel/grpc/ReservationServiceGrpc$1.class
+com/example/hotel/grpc/ReservationServiceGrpc$ReservationServiceStub.class
+com/example/hotel/grpc/ReservationServiceGrpc$ReservationServiceFileDescriptorSupplier.class
+com/example/hotel/grpc/ReservationServiceGrpc.class
+com/example/hotel/grpc/ReservationServiceGrpc$2.class
+com/example/hotel/grpc/ReservationServiceGrpc$ReservationServiceBlockingStub.class
+com/example/hotel/grpc/ReservationServiceGrpc$AsyncService.class
+com/example/hotel/grpc/ReservationServiceGrpc$ReservationServiceMethodDescriptorSupplier.class
+com/example/hotel/grpc/ReservationServiceGrpc$MethodHandlers.class
+com/example/hotel/grpc/ReservationServiceGrpc$3.class
+com/example/hotel/grpc/ReservationServiceGrpc$ReservationServiceBaseDescriptorSupplier.class
+com/example/hotel/grpc/ReservationServiceGrpc$ReservationServiceFutureStub.class
+com/example/hotel/grpc/ReservationServiceGrpc$ReservationServiceImplBase.class
